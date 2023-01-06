@@ -2,6 +2,7 @@
 const element = document.querySelector("#about");
 const height = element.clientHeight - 75;
 
+
 //console.log(element.clientHeight)
 
 document.addEventListener("scroll", () => {
@@ -15,8 +16,18 @@ document.addEventListener("scroll", () => {
 const icon = document.querySelector("#icon-menu");
 const menu = document.querySelector("#box-menu");
 
+
 icon.addEventListener("click", () => {
     menu.classList.toggle("box-menu-res");
     icon.classList.toggle("icon-menu-res");
     
 })
+
+// const projects = document.querySelectorAll(".project");
+// projects.forEach(project => project.addEventListener('click', () => {
+//     project.firstElementChild.classList.toggle("project-hover-aux");
+    
+// }));
+
+
+

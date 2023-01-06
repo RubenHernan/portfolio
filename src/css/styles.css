@@ -7,6 +7,7 @@
     --color-scroll: #6b6b6b;
     --color-dark-blue: #000000;
     --color-container: #181823;
+    --color-container-2: #3e3d41;
     --color-purple: #494993;
     --color-blue: #0C08B1;
     --color-git: #4b4b4b;
@@ -15,6 +16,7 @@
     --z-index-figure: 1000;
     --z-index-text: 2000;
     --z-index-content: 3000;
+    --z-index-content-2: 3500;
     --z-index-navbar: 4000;
     --z-index-footer: 5000;
 }
@@ -278,10 +280,11 @@ svg{
     
 }
 
-.svg-avatar{
+.figure-about{
     display: none;
-}
+    }
 
+    
 .box-info{
     display: flex;
     width: 110%;
@@ -337,8 +340,9 @@ svg{
     width: 100%;
     padding: 1.5rem 1rem;
     margin: 3rem 1rem;
-    background-color: var(--color-container);
+    background-color: var(--color-container); 
     border-radius: 2rem;
+    transition: width 0.5s;
 }
 
 .box-projects{
@@ -346,10 +350,13 @@ svg{
     gap:1rem;
     background-color: inherit;
     padding: 0 0.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     height: 100%;
-    width: 100%;
     overflow: auto;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+    z-index: var(--z-index-content);
     
 }
 
@@ -369,9 +376,128 @@ svg{
   }
 
 .project{
-    background-color: green;
-    min-height: 200px;
-    z-index:var(--z-index-content) ;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.project:hover .project-hover {
+    top: 15%;
+  }
+
+/* .project-img{
+    background-image: url("../img/project-1.png");
+    background-size: cover; 
+    width: 100%;   
+    position: relative;
+    height: 85%;
+}
+
+.project-img::after {
+    content: "";
+    background-image: url("../img/project-1-h.png");
+    background-size: cover; 
+    top: -300%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-container-2) ;
+    transition: top 0.5s;  }
+
+
+.project-img:hover::after {
+    top: 0;
+    background-color: var(--color-container-2) ;
+  } */
+
+.project-hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-container-2);
+    width: 100%;
+    top: -85%;
+    height: 85%;
+    position: absolute;
+    z-index: var(--z-index-content);
+    transition: top 0.5s;
+}
+
+.project-hover::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+   left: 0px;
+    /*background-image: url(../img/project-1-h.png); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+}
+
+/* BACKGROUNDS */
+
+.project-hover-1::before{
+    background-image: url(../img/project-1-h.png);
+}
+
+.project-hover-2::before{
+    background-image: url(../img/project-2-h.png);
+}
+
+.project-hover-3::before{
+    background-image: url(../img/project-3-h.png);
+}
+
+
+
+
+.project-hover ul{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1rem;
+}
+
+.project-hover ul li{
+    padding: 0.5rem;
+    background-color: var(--color-container-2);
+    color: var(--color-white);
+    z-index: var(--z-index-text);
+    box-shadow: 7px 8px 1px -4px rgb(0 0 0 / 70%);
+}
+
+
+.project-img{
+    height: 85%;
+    position: relative;
+}
+
+.project-img img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+
+.project-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    color: var(--color-text);
+    background-color: var(--color-container-2);
+    z-index: var(--z-index-content-2);
 }
 
 .container-contact{
@@ -441,31 +567,7 @@ svg{
 
 /* *************/
 
-
-@media (min-width: 995px) {
-    
-
-    .logo-r, .svg-avatar{
-        display: block;
-    }
-    
-.icon-menu{
-    display: none;
-}
-
-
-.figure{
-    position: relative;
-    width: 100%;
-    right: 0;
-    height: 100%;
-}
-    .box-content{
-        justify-content: normal;
-        gap:2rem;
-        padding: 0 7rem;
-        
-    }
+@media (min-width: 900px) {
 
     svg{
         position: absolute;
@@ -473,32 +575,13 @@ svg{
         height: 650px;
     }
 
-    .triangle{
-        width: 670px;
-        height: 700px;
-        top: -50px;
+    .logo-r, .svg-avatar{
+        display: block;
     }
 
-    .span-section{
-        padding-left: 5rem;
-        font-size: 1.2rem;
-        padding-top: 1.5rem;
-    }
-    .box-info{
-        justify-content: normal;
-        margin-top: 150px;
-    }
-    
-.box-text{
-    min-width: 450px;
-    gap:2rem;
-    align-items: flex-start;
-}
-
-.box-text p{
-    max-width: 400px;
-    text-align: left;
-
+        
+.icon-menu{
+    display: none;
 }
 
 .box-menu{
@@ -513,8 +596,54 @@ svg{
     color: white;
 }
 
+.span-section{
+    padding-left: 5rem;
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+}
+
+.box-content {
+    justify-content: normal;
+    gap:2rem;
+    padding: 0 7rem;
+}
+
+.box-about{
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.figure-about{
+    justify-content: center;
+    overflow: hidden;
+}
+
+.figure {
+    display: block;
+    display: flex;
+    position: relative;
+    width: 100%;
+    right: 0;
+    height: 600px;
+}
+
+.triangle{
+    width: 670px;
+    height: 700px;
+    top: -50px;
+}
+
+.box-info{
+display: flex;
+width: 100%;
+padding: 0 1rem 1rem;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
 .box-portfolio{ 
-    width: 250%;
+    width: 200%;
     padding: 1.5rem 1rem;
     margin: 1rem;
     border-radius: 2.5rem;
@@ -528,6 +657,51 @@ svg{
     height: 410px;
     margin-top: 120px;
 
+}
+
+
+}
+
+/* *************/
+
+
+@media (min-width: 1355px) {
+    
+
+.figure{
+    overflow: visible;
+    justify-content: normal;
+
+}
+    .box-content{
+        flex-direction: row;
+        gap:2rem;
+        
+    }
+
+
+    .box-info{
+        justify-content: normal;
+        margin-top: 150px;
+        
+        padding: 1rem;
+    }
+    
+.box-text{
+    min-width: 450px;
+    gap:2rem;
+    align-items: flex-start;
+}
+
+.box-text p{
+    max-width: 400px;
+    text-align: left;
+
+}
+
+
+.box-portfolio{
+    width: 250%;
 }
 
 
