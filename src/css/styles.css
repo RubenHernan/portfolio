@@ -448,6 +448,10 @@ svg {
     background-image: url(../img/project-3-h.png);
 }
 
+.project-hover-4::before {
+    background-image: url(../img/wiki2.PNG);
+}
+
 .project-hover ul {
     padding: 1rem;
     display: flex;
