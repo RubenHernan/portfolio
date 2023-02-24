@@ -452,6 +452,10 @@ svg {
     background-image: url(../img/wiki2.PNG);
 }
 
+.project-hover-5::before {
+    background-image: url(../img/poke2.PNG);
+}
+
 .project-hover ul {
     padding: 1rem;
     display: flex;
